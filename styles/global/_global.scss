@@ -1,7 +1,24 @@
 @use "mixins" as *;
 
 *, *::before, *::after {
+	// ---------------- Global Resets ----------------
 	@include mp();
 	box-sizing: border-box;
+
+	// ---------------- UI Resets ----------------
+	outline: 0;
+
+	// ---------------- Global Styles ----------------
 	font-family: var(--font-primary);
+}
+
+body {
+	height: 100vh;
+	height: 100dvh;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+}
+
+h1, .h1 {
+	margin: 0;
 }

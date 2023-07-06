@@ -1,0 +1,72 @@
+@use "classes" as *;
+@use "mixins" as *;
+
+// ---------------- UI Links ----------------
+a.hg-link {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		@extend %stroke-fx-initial;
+	}
+
+	&:hover::before,
+	&:focus::before {
+		@extend %stroke-fx-active;
+	}
+}
+
+// ---------------- UI Form Resets ----------------
+input.text, button {
+	@extend %ui-form-reset;
+}
+
+// ---------------- UI  Elements ----------------
+span.hg-input-text {
+	position: relative;
+}
+
+input.text {
+	& + span {
+		position: absolute;
+		@extend %stroke-fx-initial;
+	}
+
+	&:focus-visible + span,
+	&:hover + span {
+		@extend %stroke-fx-active;
+	}
+}
+
+button.hg-icon {
+	--hover-scale: 1.25;
+
+	& > svg {
+		will-change: scale;
+		transition: scale var(--transition-duration-on);
+	}
+
+	&:focus-visible,
+	&:hover {
+		> svg {
+			scale: var(--hover-scale);
+		}
+	}
+}
+
+a.hg-link-icon {
+	--hover-scale: 1.25;
+
+	& > svg {
+		will-change: scale;
+		transition: scale var(--transition-duration-on);
+	}
+
+	&:focus-visible,
+	&:hover {
+		> svg {
+			scale: var(--hover-scale);
+		}
+	}
+}

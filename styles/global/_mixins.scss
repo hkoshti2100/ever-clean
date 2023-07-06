@@ -1,3 +1,9 @@
+@use "sass:math";
+
+@mixin bg {
+	background-color: rgba(43, 255, 0, 0.333);
+}
+
 @mixin mp($margin: 0, $padding: 0) {
 	margin: $margin;
 	padding: $padding;
@@ -17,4 +23,15 @@
 	display: flex;
 	justify-content: $main;
 	align-items: $cross;
+}
+
+@mixin inset($offset) {
+	top: $offset;
+	right: $offset;
+	bottom: $offset;
+	left: $offset;
+}
+
+@function rem($pixel-value) {
+	@return math.div($pixel-value, 1px) * 0.0625rem;
 }
