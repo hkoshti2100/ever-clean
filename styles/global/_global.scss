@@ -1,0 +1,7 @@
+@use "mixins" as *;
+
+*, *::before, *::after {
+	@include mp();
+	box-sizing: border-box;
+	font-family: var(--font-primary);
+}
