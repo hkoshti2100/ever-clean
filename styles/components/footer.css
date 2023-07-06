@@ -1,1 +1,18 @@
+footer {
+  padding: calc(var(--header-padding-block) * 1.5) 0;
+}
+footer p {
+  text-align: center;
+  font-weight: 450;
+}
 
+@media screen and (max-width: 768px) {
+  footer p {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  footer p {
+    font-size: 0.8rem;
+  }
+}
