@@ -2,7 +2,7 @@
 @use "mixins" as *;
 
 // ---------------- UI Links ----------------
-a.hg-link {
+a.ec-link {
 	position: relative;
 
 	&::before {
@@ -23,7 +23,7 @@ input.text, button {
 }
 
 // ---------------- UI  Elements ----------------
-span.hg-input-text {
+span.ec-input-text {
 	position: relative;
 }
 
@@ -39,7 +39,7 @@ input.text {
 	}
 }
 
-button.hg-icon {
+button.ec-icon {
 	--hover-scale: 1.25;
 
 	& > svg {
@@ -55,7 +55,7 @@ button.hg-icon {
 	}
 }
 
-a.hg-link-icon {
+a.ec-link-icon {
 	--hover-scale: 1.25;
 
 	& > svg {
@@ -67,6 +67,121 @@ a.hg-link-icon {
 	&:hover {
 		> svg {
 			scale: var(--hover-scale);
+		}
+	}
+}
+
+.ec-btn {
+	--btn-size: 1rem;
+	--btn-weight: 600;
+	--btn-padding: 1em 4em;
+
+	&.small {
+		--btn-size: 0.8rem;
+		--btn-padding: 0.75em 1.25em;
+	}
+
+	// --btn-shadow-primary: 5px 5px 20px var(--color-text);
+	// --btn-shadow-outline: inset 5px 5px 20px #00000080;
+
+	--btn-shadow-primary: 5px 5px 20px var(--color-accent);
+	--btn-shadow-outline: inset 5px 5px 20px rgba(243, 196, 41, 0.33);
+
+	display: inline-block;
+	// color: var(--color-text);
+	color: var(--color-accent);
+	text-decoration: none;
+	letter-spacing: 1px;
+	font-size: var(--btn-size);
+	font-weight: var(--btn-weight);
+
+	padding: var(--btn-padding);
+	border-radius: 100vmax;
+
+	&.primary {
+		color: var(--color-bg);
+		// background-color: var(--color-text);
+		background-color: var(--color-accent);
+		transition: box-shadow var(--transition-duration-off);
+		
+		&:hover,
+		&:focus-visible {
+			box-shadow: var(--btn-shadow-primary);
+			transition: box-shadow var(--transition-duration-on);
+		}
+	}
+
+	&.outline {
+		// @include inset-border(2px, var(--color-text));
+		@include inset-border(2px, var(--color-accent));
+		transition: box-shadow var(--transition-duration-off);
+
+		&:hover,
+		&:focus-visible {
+			box-shadow: var(--btn-shadow-outline);
+			transition: box-shadow var(--transition-duration-on);
+		}
+	}
+
+	&.width-full {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.ec-btn {
+		--btn-size: 0.85rem;
+		--btn-padding: 1em 3.5em;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.ec-btn {
+		--btn-size: 0.8rem;
+		--btn-padding: 1em 3em;
+	}
+}
+
+select,
+input[type=datetime-local] {
+	padding: 0.5em;
+	border: 1px solid var(--color-border);
+	border-radius: 5px;
+}
+
+table.schedule-table {
+	width: 100%;
+	margin-top: 100px;
+	border-collapse: collapse;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+	tr + tr {
+		border-top: 1px solid rgb(226, 226, 226);
+	}
+
+	th, td {
+		padding: 0.5em 0;
+	}
+
+	th {
+		background-color: rgb(247, 247, 247);
+	}
+
+	td {
+		background-color: var(--color-light);
+		text-align: center;
+	}
+
+	input[type=checkbox] {
+		appearance: none;
+		@include square(0.75rem);
+		border-radius: 50%;
+		outline: 1px solid var(--color-border);
+		outline-offset: 2px;
+
+		&:checked {
+			background-color: var(--color-accent);
+			outline-color: var(--color-accent);
 		}
 	}
 }

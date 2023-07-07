@@ -1,0 +1,105 @@
+:root {
+  --color-accent: rgb(255, 187, 0);
+  --color-text: black;
+  --color-bg: white;
+  --color-light: white;
+  --color-tint: rgb(255, 250, 233);
+  --color-dark: black;
+  --color-border: rgb(226, 226, 226);
+  --font-primary: "Montserrat";
+  --focus-fx-stroke: 2px;
+  --focus-fx-offset: -8px;
+  --focus-fx-color: var(--color-text);
+  --focus-fx-alignX: 50%;
+  --header-logo-height: 40px;
+  --header-logo-width: 100px;
+  --header-padding-block: 20px;
+  --transition-duration-on: 250ms;
+  --transition-duration-off: calc(var(--transition-duration-on) * 2);
+}
+
+main.schedule {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-schedule {
+  --margin-top: 1.25em;
+}
+#page-schedule > * + * {
+  margin-top: var(--margin-top);
+}
+#page-schedule > a.back {
+  text-align: center;
+  font-size: 14px;
+  display: inline-flex;
+  gap: 0.5em;
+}
+#page-schedule > a.back::before {
+  content: url("../../assets/icons/back.svg");
+  width: 1em;
+}
+#page-schedule .dropdown {
+  display: flex;
+  gap: 1em;
+}
+#page-schedule select.width-half {
+  width: 50%;
+}
+#page-schedule select.width-full {
+  width: 100%;
+}
+
+#form-prime > .schedule {
+  display: none;
+}
+
+#schedule-types:has(#recurring:checked) ~ #schedule-recurring {
+  display: block;
+}
+
+#schedule-types:has(#one-time:checked) ~ #schedule-one-time {
+  display: block;
+}
+
+#schedule-types:has(#flexible:checked) ~ #schedule-flexible {
+  display: block;
+}
+
+#schedule-types {
+  display: flex;
+  border-radius: 100vmax;
+  background-color: var(--color-light);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+#schedule-types > input[name=schedule-type] {
+  display: none;
+}
+#schedule-types > input[name=schedule-type]:checked + label {
+  background-color: var(--color-accent);
+  color: var(--color-light);
+}
+#schedule-types > label {
+  font-weight: 500;
+  flex: 1 1 0;
+  text-align: center;
+  padding: 0.5em 0;
+  border-radius: 100vmax;
+}
+
+#form-prime > .schedule > * {
+  margin-top: 1.25em;
+}
+#form-prime > .schedule label > h5 {
+  margin-bottom: 0.75em;
+}
+#form-prime > .schedule input[type=datetime-local] {
+  width: 100%;
+}
+#form-prime > .schedule > table {
+  margin-top: 2em;
+}
+#form-prime button[type=submit] {
+  margin-top: 2em;
+}

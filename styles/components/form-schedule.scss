@@ -1,0 +1,102 @@
+@use "../global/mixins" as *;
+@use "../global/variables" as *;
+
+main.schedule {
+	@include flex();
+}
+
+#page-schedule {
+	--margin-top: 1.25em;
+
+	> * + * {
+		margin-top: var(--margin-top);
+	}
+
+	> a.back {
+		text-align: center;
+		font-size: 14px;
+		display: inline-flex;
+		gap: 0.5em;
+
+		&::before {
+			content: url("../../assets/icons/back.svg");
+			width: 1em;
+		}
+	}
+
+	.dropdown {
+		display: flex;
+		gap: 1em;
+	}
+
+	select {
+		&.width-half {
+			width: 50%;
+		}
+
+		&.width-full {
+			width: 100%;
+		}
+	}
+}
+
+#form-prime > .schedule {
+	display: none;
+}
+
+$tabs: "recurring", "one-time", "flexible";
+@each $tab in $tabs {
+	#schedule-types:has(##{$tab}:checked) ~ #schedule-#{$tab} {
+		display: block;
+	}
+}
+
+#schedule-types {
+	display: flex;
+	border-radius: 100vmax;
+	background-color: var(--color-light);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+	> input[name=schedule-type] {
+		display: none;
+
+		&:checked {
+			+ label {
+				background-color: var(--color-accent);
+				color: var(--color-light);
+			}
+		}
+	}
+	
+	> label {
+		font-weight: 500;
+		flex: 1 1 0;
+		text-align: center;
+		padding: 0.5em 0;
+		border-radius: 100vmax;
+	}
+}
+
+#form-prime {
+	> .schedule {
+		> * {
+			margin-top: 1.25em;
+		}
+
+		label > h5 {
+			margin-bottom: 0.75em;
+		}
+
+		input[type=datetime-local] {
+			width: 100%;
+		}
+
+		> table {
+			margin-top: 2em;
+		}
+	}
+
+	button[type=submit] {
+		margin-top: 2em;
+	}
+}

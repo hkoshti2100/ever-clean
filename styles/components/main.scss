@@ -1,6 +1,6 @@
 @use "../global/mixins" as *;
 
-main {
+main.home {
 	@include flex(flex-start);
 }
 
@@ -16,13 +16,8 @@ main {
 	--p-leading: 1.75;
 	--p-space: 2em;
 
-	--btn-size: 1rem;
-	--btn-weight: 600;
-	--btn-padding: 1em 4em;
 	--btn-gap-col: 40px;
 	--btn-gap-row: 10px;
-	--btn-shadow-primary: 5px 5px 20px var(--color-text);
-	--btn-shadow-outline: inset 5px 5px 20px #00000080;
 
 
 	width: var(--section-hero-width);
@@ -47,42 +42,6 @@ main {
 		flex-wrap: wrap;
 		gap: var(--btn-gap-row) var(--btn-gap-col);
 	}
-
-	a.hg-btn {
-		display: inline-block;
-
-		color: var(--color-text);
-		text-decoration: none;
-		letter-spacing: 1px;
-		font-size: var(--btn-size);
-		font-weight: var(--btn-weight);
-	
-		padding: var(--btn-padding);
-		border-radius: 100vmax;
-	
-		&.primary {
-			color: var(--color-bg);
-			background-color: var(--color-text);
-			transition: box-shadow var(--transition-duration-off);
-			
-			&:hover,
-			&:focus-visible {
-				box-shadow: var(--btn-shadow-primary);
-				transition: box-shadow var(--transition-duration-on);
-			}
-		}
-
-		&.outline {
-			@include inset-border(2px, var(--color-text));
-			transition: box-shadow var(--transition-duration-off);
-
-			&:hover,
-			&:focus-visible {
-				box-shadow: var(--btn-shadow-outline);
-				transition: box-shadow var(--transition-duration-on);
-			}
-		}
-	}
 }
 
 @media screen and (max-width: 1024px) {
@@ -91,9 +50,7 @@ main {
 		--h1-space: 0.8em;
 
 		--p-size: 1.2rem;
-		
-		--btn-size: 0.85rem;
-		--btn-padding: 1em 3.5em;
+
 		--btn-gap-col: 35px;
 	}
 }
@@ -110,9 +67,7 @@ main {
 		--h1-space: 0.8em;
 
 		--p-size: 1rem;
-		
-		--btn-size: 0.8rem;
-		--btn-padding: 1em 3em;
+
 		--btn-gap-col: 30px;
 	}
 }

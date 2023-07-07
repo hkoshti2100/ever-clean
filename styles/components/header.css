@@ -13,7 +13,7 @@
   display: none;
 }
 
-.hg-pointer {
+.ec-pointer {
   cursor: pointer;
 }
 
@@ -163,7 +163,7 @@ header .icon-header {
   gap: var(--icon-mobile-size);
 }
 @media screen and (max-width: 1280px) {
-  header span.hg-input-text {
+  header span.ec-input-text {
     display: none;
   }
 }

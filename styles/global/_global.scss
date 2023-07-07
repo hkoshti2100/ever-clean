@@ -13,10 +13,16 @@
 }
 
 body {
+	background-color: var(--color-tint);
 	height: 100vh;
 	height: 100dvh;
 	display: grid;
 	grid-template-rows: auto 1fr auto;
+}
+
+::selection {
+	color: var(--color-light);
+	background-color: rgb(255, 218, 118);
 }
 
 h1, .h1 {

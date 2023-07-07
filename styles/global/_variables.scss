@@ -2,14 +2,17 @@
     // ---------------- colors ----------------
 	// --color-primary: ;
 	// --color-secondary: ;
-	// --color-accent: ;
+	--color-accent: rgb(255, 187, 0);
 
 	--color-text: black;
+	// --color-text: var(--color-accent);
 	--color-bg: white;
 
-	// --color-light: ;
-	// --color-tint: ;
-	// --color-dark: ;
+	--color-light: white;
+	--color-tint: rgb(255, 250, 233);
+	--color-dark: black;
+
+	--color-border: rgb(226, 226, 226);
 
 
 	// ---------------- typography ----------------
